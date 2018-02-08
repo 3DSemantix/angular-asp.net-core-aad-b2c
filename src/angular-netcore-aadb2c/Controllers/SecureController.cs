@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace angularNetcoreAadb2c.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class SecureController : Controller
     {
         [HttpGet]
         public IEnumerable<string> Get()
