@@ -20,6 +20,7 @@ Here are some of the provided functionnalities:
 ### Prerequisites
 
 [Node.js](https://nodejs.org/en/) Installed
+
 [.NET Core](https://www.microsoft.com/net/core#windowscmd) Installed
 
 ### Setup the project
