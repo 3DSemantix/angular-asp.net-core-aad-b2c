@@ -25,7 +25,7 @@ Here are some of the provided functionnalities:
 
 ### Setup the project
 
-Copy the **appsettings.json** file and rename it **appsettings.Development.json**.
+Copy the **appsettings.json** file and rename it as **appsettings.Development.json**.
 
 Set your **appsettings.Development.json** file with your own AAD B2C informations:
 
