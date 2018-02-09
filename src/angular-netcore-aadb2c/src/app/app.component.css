@@ -1,0 +1,33 @@
+#page-body {
+  width: 800px;
+  min-height: 500px;
+  margin: auto;
+  background-color: white;
+  border: 2px solid gray;
+}
+
+header {
+  width: 800px;
+  height: 30px;
+  padding: 10px 0 0 0;
+  border-bottom: 2px solid gray;
+  background-color: gray;
+  color: white;
+}
+
+  header a {
+    color: white;
+  }
+
+    header a:hover {
+      color: black;
+    }
+
+app-login_for_navbar {
+  float: right;
+  margin-right: 10px;
+}
+
+#navigation {
+  margin-left: 10px;
+}

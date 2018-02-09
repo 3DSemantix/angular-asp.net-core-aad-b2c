@@ -1,0 +1,30 @@
+<div *ngIf="isRedirecting">
+  <!-- Is initializing tokens -->
+  <div id="pfo-redirect">
+    <h3>Redirection...</h3>
+    <p>
+      Please wait.<br />
+      We're making things ready for you.
+    </p>
+  </div>
+</div>
+
+<div *ngIf="!isRedirecting">
+  <!-- Got an error! -->
+  <div *ngIf="hasError">
+    <h3>An error has occurred</h3>
+    <p>
+      {{error}} <br />
+      <br />
+      {{errorDescription}}
+    </p>
+  </div>
+  <!-- Not at the good place -->
+  <div *ngIf="!hasError">
+    <h3>Unauthorized</h3>
+    <p>
+      You must be logged-in to access this page. <br />
+      Please register or sign-in.
+    </p>
+  </div>
+</div>

@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
   apiValues: string[] = [];
 
   ngOnInit() {
-    this.httpService.get("/api/secure").subscribe(values => {
-      this.apiValues = values.json() as string[];
-    });
+    //this.httpService.get("/api/secure").subscribe(values => {
+    //  this.apiValues = values.json() as string[];
+    //});
   }
 }

@@ -1,0 +1,4 @@
+<div id="pfo-login">
+  <span *ngIf="!isConnected"><a href (click)="login()">Sign in</a> | <a href (click)="register()">Register</a></span>
+  <span *ngIf="isConnected">{{ userName }} <a href (click)="logout()">Log out</a></span>
+</div>

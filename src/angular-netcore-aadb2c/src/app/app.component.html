@@ -1,4 +1,15 @@
-<h1>Application says what?</h1>
+<div id="page-body">
+  <header>
+    <app-login_for_navbar></app-login_for_navbar>
+    <div id="navigation">
+      <a href [routerLink]="['/home']">Home</a> | 
+      <a href [routerLink]="['/authenticatedsection']">Authenticated Section</a>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+</div>
+
+<!--<h1>Application says what?</h1>
 <ul>
   <li *ngFor="let value of apiValues">{{value}}</li>
-</ul>
+</ul>-->
