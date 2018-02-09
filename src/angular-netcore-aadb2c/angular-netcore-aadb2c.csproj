@@ -15,10 +15,20 @@
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     </ItemGroup>
     
     <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Content Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="proxy.config.json">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

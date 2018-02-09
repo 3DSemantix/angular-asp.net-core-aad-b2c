@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace angularNetcoreAadb2c.Controllers
 {
-    [Route("api/[controller]")]
-    public class SecureController : Controller
+  [Authorize]
+  [Route("api/[controller]")]
+  public class SecureController : Controller
+  {
+    [HttpGet]
+    public IEnumerable<string> Get()
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "Hello", "World" };
-        }
+      return new string[] { "Hello", "World" };
     }
+  }
 }
