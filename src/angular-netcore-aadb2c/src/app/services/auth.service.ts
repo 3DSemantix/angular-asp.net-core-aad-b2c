@@ -6,6 +6,9 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Observable } from "rxjs/Observable";
 import { Http, Response } from "@angular/http";
+import { map } from "rxjs/operators";
+import { of } from 'rxjs/observable/of';
+
 
 import { AuthStatus, PolicyType } from "../models/auth.models";
 import { SettingsService, OauthSettings } from "./settings.service";
@@ -106,7 +109,7 @@ export class AuthService {
     }
 
     if (nowEpoch < (savedStatus.accessTokenExpiresTimeEpoch - this.secureTimeGap)) {
-      return Observable.of(accessToken);
+      return of(accessToken);
     } else {
       //Look if still inside of sliding window
       const slidingWindowMaxTime = +localStorage.getItem("sliding_window");
@@ -121,19 +124,20 @@ export class AuthService {
         throw new Error("refresh token not valid");
       }
 
-      return this.httpService.post(`/api/Auth/RefreshTokens?refreshToken=${refreshToken}&policy=${policy}`, "").map((res: Response) => {
-        const wrappedData = new TokensInfoWrapper(<TokensInfo>res.json());
-        this.setStoredAuthInfo(
-          policy,
-          wrappedData.data.access_token,
-          wrappedData.data.refresh_token,
-          wrappedData.data.expires_on,
-          ((+wrappedData.data.not_before) + (+wrappedData.data.refresh_token_expires_in)).toString(),
-          wrappedData.getName(), wrappedData.getEmail()
-        );
+      return this.httpService.post(`/api/Auth/RefreshTokens?refreshToken=${refreshToken}&policy=${policy}`, "").pipe(
+        map((res: Response) => {
+          const wrappedData = new TokensInfoWrapper(<TokensInfo>res.json());
+          this.setStoredAuthInfo(
+            policy,
+            wrappedData.data.access_token,
+            wrappedData.data.refresh_token,
+            wrappedData.data.expires_on,
+            ((+wrappedData.data.not_before) + (+wrappedData.data.refresh_token_expires_in)).toString(),
+            wrappedData.getName(), wrappedData.getEmail()
+          );
 
-        return wrappedData.data.access_token;
-      });
+          return wrappedData.data.access_token;
+        }));
     }
   }
 

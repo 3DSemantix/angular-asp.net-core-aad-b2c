@@ -11,7 +11,7 @@ namespace angularNetcoreAadb2c.Controllers
     [HttpGet]
     public IEnumerable<string> Get()
     {
-      return new string[] { "Hello", "World" };
+      return new string[] { "Hello", "World", "From", "AAD B2C", "Protected", "API" };
     }
   }
 }
