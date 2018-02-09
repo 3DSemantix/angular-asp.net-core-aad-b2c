@@ -63,14 +63,7 @@ namespace angular_netcore_aadb2c
       });
 
       app.UseAuthentication();
-
-      //var oauthSettings = optionOauthSettings.Value;
-      //  app.UseJwtBearerAuthentication(new JwtBearerOptions()
-      //  {
-      //      MetadataAddress = string.Format(oauthSettings.AadInstance, oauthSettings.Tenant, oauthSettings.SignInPolicyId),
-      //      Audience = oauthSettings.ClientId
-      //  });
-
+      
       app.UseMvcWithDefaultRoute();
 
       app.UseDefaultFiles();
