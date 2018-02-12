@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
@@ -31,4 +27,13 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">
+        <Message Text="* * * * * * Building Angular App * * * * * *" Importance="high" />
+        <!--<Exec Command="ng build -prod -aot=false" />-->
+        <Exec Command="ng build -prod -aot" />
+    </Target>
 </Project>

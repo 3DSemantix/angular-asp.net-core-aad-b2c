@@ -288,3 +288,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+
+# Build folder
+/src/angular-netcore-aadb2c/wwwroot/
