@@ -1,12 +1,12 @@
-﻿/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
-import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
+import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from "@angular/core/testing";
 import { BrowserModule, By } from "@angular/platform-browser";
-import { LoginComponent } from './login.component';
+import { LoginComponent } from "./login.component";
 
 let component: LoginComponent;
 let fixture: ComponentFixture<LoginComponent>;
 
-describe('login component', () => {
+describe("login component", () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ LoginComponent ],
@@ -19,7 +19,7 @@ describe('login component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it("should do something", async(() => {
         expect(true).toEqual(true);
     }));
 });

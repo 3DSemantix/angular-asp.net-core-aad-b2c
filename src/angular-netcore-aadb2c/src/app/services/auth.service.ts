@@ -7,7 +7,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Observable } from "rxjs/Observable";
 import { Http, Response } from "@angular/http";
 import { map } from "rxjs/operators";
-import { of } from 'rxjs/observable/of';
+import { of } from "rxjs/observable/of";
 
 
 import { AuthStatus, PolicyType } from "../models/auth.models";

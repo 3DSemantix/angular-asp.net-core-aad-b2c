@@ -1,12 +1,12 @@
-﻿/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
-import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
+/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
+import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from "@angular/core/testing";
 import { BrowserModule, By } from "@angular/platform-browser";
-import { RegisterComponent } from './register.component';
+import { RegisterComponent } from "./register.component";
 
 let component: RegisterComponent;
 let fixture: ComponentFixture<RegisterComponent>;
 
-describe('register component', () => {
+describe("register component", () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ RegisterComponent ],
@@ -19,7 +19,7 @@ describe('register component', () => {
         component = fixture.componentInstance;
     }));
 
-    it('should do something', async(() => {
+    it("should do something", async(() => {
         expect(true).toEqual(true);
     }));
 });
