@@ -20,11 +20,12 @@ Here are some of the provided functionnalities:
 ### Prerequisites
 
 [Node.js](https://nodejs.org/en/) Installed
+
 [.NET Core](https://www.microsoft.com/net/core#windowscmd) Installed
 
 ### Setup the project
 
-Copy the **appsettings.json** file and rename it **appsettings.Development.json**.
+Copy the **appsettings.json** file and rename it as **appsettings.Development.json**.
 
 Set your **appsettings.Development.json** file with your own AAD B2C informations:
 
