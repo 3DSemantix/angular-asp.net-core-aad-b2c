@@ -48,6 +48,13 @@ Run inside the \src\angular-netcore-aadb2c folder the following command:
 ```
 npm install
 ```
+### Angular CLI
+
+If you never installed Angular CLI, run: 
+
+```
+npm install @angular/cli --global
+```
 
 ### Run the project
 
