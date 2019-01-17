@@ -1,9 +1,9 @@
 # Angular + ASP.NET Core + AAD B2C
-A single page app implemented using Angular 5, ASP.NET Core 2.0 and Azure AD B2C.
+A single page app implemented using Angular 7, ASP.NET Core 2.1 and Azure AD B2C.
 
 ## Synopsis
 
-This is a fully functionnal ASP.NET Core 2.0 and Angular 5 application, using Azure Active Directory B2C to handle authentication based on the [OAuth 2.0 authorization flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code). 
+This is a fully functionnal ASP.NET Core 2.1 and Angular 7 application, using Azure Active Directory B2C to handle authentication based on the [OAuth 2.0 authorization flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code). 
 
 Here are some of the provided functionnalities:
 - Sign-in/Sign-out/Register via AAD B2C
