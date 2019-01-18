@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace angularNetcoreAadb2c.Controllers
 {
-  [Authorize]
-  [Route("api/[controller]")]
-  public class SecureController : Controller
-  {
-    [HttpGet]
-    public IEnumerable<string> Get()
+    [Authorize]
+    [Route("api/[controller]")]
+    public class SecureController : Controller
     {
-      return new string[] { "Hello", "World", "From", "AAD B2C", "Protected", "API" };
+        [HttpGet("[action]")]
+        public IEnumerable<string> GetData()
+        {
+            return new string[] { "Hello", "World", "From", "AAD B2C", "Protected", "API" };
+        }
     }
-  }
 }

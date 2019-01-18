@@ -10,19 +10,15 @@ using Microsoft.Extensions.Logging;
 
 namespace angular_netcore_aadb2c
 {
-  public class Program
-  {
-    public static void Main(string[] args)
+    public class Program
     {
-      BuildWebHost(args).Run();
-    }
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
 
-    public static IWebHost BuildWebHost(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>()
-#if DEBUG
-            .UseUrls("http://0.0.0.0:5000") //Permit Angular to find API locally
-#endif
-            .Build();
-  }
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
+    }
 }
