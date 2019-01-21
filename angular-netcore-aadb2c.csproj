@@ -4,36 +4,67 @@
         <TargetFramework>netcoreapp2.1</TargetFramework>
         <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
         <RootNamespace>angularNetcoreAadb2c</RootNamespace>
+         <SpaRoot>ClientApp\</SpaRoot>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+        <!-- Set this to true if you enable server-side prerendering -->
+        <BuildServerSideRenderer>false</BuildServerSideRenderer>
+        <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
-        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
-        <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    </ItemGroup>
-    
-    <ItemGroup>
-        <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Content Update="appsettings.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Update="proxy.config.json">
-        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      </Content>
+   <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\" />
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)**" />
+        <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     </ItemGroup>
 
-    <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">
-        <Message Text="* * * * * * Building Angular App * * * * * *" Importance="high" />
-        <!--<Exec Command="ng build -prod -aot=false" />-->
-        <Exec Command="ng build -prod -aot" />
+    <ItemGroup>
+      <Content Include="ClientApp\angular.json" />
+      <Content Include="ClientApp\e2e\tsconfig.e2e.json" />
+      <Content Include="ClientApp\package-lock.json" />
+      <Content Include="ClientApp\package.json" />
+      <Content Include="ClientApp\proxy.config.json" />
+      <Content Include="ClientApp\src\tsconfig.app.json" />
+      <Content Include="ClientApp\src\tsconfig.spec.json" />
+      <Content Include="ClientApp\tsconfig.json" />
+      <Content Include="ClientApp\tslint.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Pages\Error.cshtml" />
+      <None Include="Pages\_ViewImports.cshtml" />
+    </ItemGroup>
+
+    <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+        <!-- Ensure Node.js is installed -->
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    </Target>
+
+    <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+        <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+        <!-- Include the newly-built files in the publish output -->
+        <ItemGroup>
+            <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+            <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+                <RelativePath>%(DistFiles.Identity)</RelativePath>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            </ResolvedFileToPublish>
+        </ItemGroup>
     </Target>
 </Project>

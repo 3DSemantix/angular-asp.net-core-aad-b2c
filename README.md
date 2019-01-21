@@ -43,11 +43,6 @@ Set your **appsettings.Development.json** file with your own AAD B2C information
 }
 ```
 
-Run inside the \src\angular-netcore-aadb2c folder the following command:
-
-```
-npm install
-```
 ### Angular CLI
 
 If you never installed Angular CLI, run: 
@@ -58,20 +53,13 @@ npm install @angular/cli --global
 
 ### Run the project
 
-You need to run both ASP.NET Core and Angular applications to run the entire project. 
+Open and launch the project directly from Visual Studio.
 
-Start ASP.NET Core project:
-```
-dotnet watch run
-```
+Visual Studio should restore npm packages, if it fails, run inside the \ClientApp folder the following command:
 
-Start Angular project:
 ```
-ng serve --proxy-config proxy.config.json
+npm install
 ```
-
-The application will be available on localhost:4200.
-
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
