@@ -9,6 +9,7 @@
 
         <!-- Set this to true if you enable server-side prerendering -->
         <BuildServerSideRenderer>false</BuildServerSideRenderer>
+        <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
     </PropertyGroup>
 
    <ItemGroup>
