@@ -4,29 +4,29 @@
   "newProjectRoot": "projects",
   "projects": {
     "angular-netcore-aadb2c": {
-      "root": "",
+      "root": "src",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "wwwroot",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [
-              "node_modules/jwt-decode/build/jwt-decode.min.js"
-            ]
-          },
+            "options": {
+                "outputPath": "dist",
+                "index": "src/index.html",
+                "main": "src/main.ts",
+                "tsConfig": "src/tsconfig.app.json",
+                "polyfills": "src/polyfills.ts",
+                "assets": [
+                    "src/assets",
+                    "src/favicon.ico"
+                ],
+                "styles": [
+                    "src/styles.css"
+                ],
+                "scripts": [
+                    "node_modules/jwt-decode/build/jwt-decode.min.js"
+                ]
+            },
           "configurations": {
             "production": {
               "optimization": true,
